@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-align: center;
+    transition: all 0.5s;
+}
+section {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 50px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    flex-direction: column;
+}
+.container {
+    min-height: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.input-sec {
+    position: relative;
+    width: 50%;
+    display: flex;
+    padding: 20px 30px;
+    min-height: 50vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.display-sec {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px; 
+    border: 1px dotted green;
+}
+input[name="link"] {
+    width:70%;
+    outline: none;
+    padding: 10px;
+    font-weight: 400;
+    text-align: center;
+    margin: 20px 0px;
+    border-radius: 10px;
+}
+input[name="link"]:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+input[name="btn"] {
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    background: green;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+input[id="clear-el"] {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    display: none;
+    background: red;
+}
+ul {
+    padding: 0;
+}
+ul li {
+    margin: 10px;
+    text-align: left;
+    list-style-type:decimal;
+}
+ul li a {
+    color: green;
+    text-decoration: none;
+}
+ul li a:hover {
+    text-decoration: underline;
+}
+@media (max-width:1000px) {
+    .input-sec,
+    .display-sec {
+        width: 90%;
+        padding: 10px;
+    }
+    section,
+    .container {
+        padding: 10px;
+        flex-direction: column;
+    }
+}
