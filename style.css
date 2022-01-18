@@ -18,6 +18,9 @@ section {
     gap: 20px;
     justify-content: center;
     flex-direction: column;
+    background:url("bg.jpg");
+    background-position: center;
+    background-size: cover;
 }
 .container {
     min-height: 0;
@@ -101,6 +104,9 @@ ul li a:hover {
     section,
     .container {
         padding: 10px;
+        flex-direction: column;
+    }
+    .buttons {
         flex-direction: column;
     }
 }
