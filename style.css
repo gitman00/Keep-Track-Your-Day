@@ -41,10 +41,9 @@ section {
     width: 100%;
     padding: 20px;
     border-radius: 20px; 
-    border: 1px dotted green;
 }
 input[name="link"] {
-    width:70%;
+    width:100%;
     outline: none;
     padding: 10px;
     font-weight: 400;
@@ -62,14 +61,21 @@ input[name="btn"] {
     background: green;
     padding: 10px 20px;
     cursor: pointer;
+    margin: 10px;
     border-radius: 10px;
 }
 input[id="clear-el"] {
-    position: absolute;
-    bottom: 2%;
-    right: 2%;
-    display: none;
+    display: flex;
+    margin-top: 20px;
     background: red;
+}
+.buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* line-height: 100px; */
+    /* flex-direction: column; */
 }
 ul {
     padding: 0;
@@ -89,8 +95,8 @@ ul li a:hover {
 @media (max-width:1000px) {
     .input-sec,
     .display-sec {
-        width: 90%;
-        padding: 10px;
+        width: 100%;
+        /* padding: 10px; */
     }
     section,
     .container {

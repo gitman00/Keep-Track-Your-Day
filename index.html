@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chrome Extension </title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">  
 </head>
 <body>
     <section>
@@ -14,11 +15,14 @@
         <div class="container">
             <div class="input-sec">
                 <input type="url" placeholder="Enter the Url" name="link" id="input-el">
-                <input type="button" name="btn" value="Save Link" id="btn-el">
+                <div class="buttons">
+                    <input type="button" name="btn" value="Save Link" id="btn-el">
+                    <input type="button" name="btn" value="This Tab" id="tab-el">
+                    <input type="button" name="btn" value="Clear" id="clear-el">
+                </div>
             </div>
             <div class="display-sec">
                 <ul id="ul-el"></ul>
-                <input type="button" name="btn" value="Clear" id="clear-el">
             </div>
         </div>
     </section>
