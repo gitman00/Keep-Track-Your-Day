@@ -3,14 +3,40 @@ const inputEl = document.querySelector('#input-el');
 const Btn = document.querySelector('#btn-el');
 const ulEl = document.querySelector('#ul-el');
 const clear_bth = document.querySelector('#clear-el');
+const tab_btn = document.querySelector('#tab-el');
 
-
-let dataLocalStorage = JSON.parse(localStorage.getItem("Links"))
-console.log(dataLocalStorage)
+const dataLocalStorage = JSON.parse(localStorage.getItem("Links"))
 
 if (dataLocalStorage) {
     list = dataLocalStorage;
-    displayInfo()
+    displayInfo(list)
+}
+
+tab_btn.addEventListener('click', () => {
+    chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
+        list.push(tabs[0].url);
+    
+        // storingb the list into local storage
+        localStorage.setItem("Links", JSON.stringify(list))
+        displayInfo(list);
+    });
+})
+
+// mechanism to display the info in unorderd list and saving the info in the list
+function displayInfo (value) {
+    let items = "";
+    for (let i = 0; i < value.length; i++) {
+        items += `
+            <li>
+                <a href='${value[i]}' target='_blank'>
+                    ${value[i]} 
+                </a>
+            </li>
+        ` 
+    }
+
+    // Displaying the info in unorderd list
+    ulEl.innerHTML = items;  
 }
 
 // display the info in the list after click in "Save Link" button 
@@ -20,42 +46,14 @@ Btn.addEventListener('click', () => {
 
     // storingb the list into local storage
     localStorage.setItem("Links", JSON.stringify(list))
-
-    displayInfo();
-    // Display();
+    displayInfo(list);
 
 })
 
 // clearing the list after click in "Clear" button 
-clear_bth.addEventListener('click', () => {
+clear_bth.addEventListener('dblclick', () => {
     list = [];
-    ulEl.innerHTML = "";
+    // ulEl.innerHTML = "";
     localStorage.clear()
-    // Display();
+    displayInfo(list);
 })
-
-// mechanism to display or hide the clear button
-// var Display = () => {
-//     if (list.length > 0) {
-//         clear_bth.style.display = "flex";
-//     } else {
-//         clear_bth.style.display = "none";
-//     }
-// }
-
-// mechanism to display the info in unorderd list and saving the info in the list
-function displayInfo () {
-    let items = "";
-    for (let i = 0; i < list.length; i++) {
-        items += `
-            <li>
-                <a href='${list[i]}' target='_blank'>
-                    ${list[i]} 
-                </a>
-            </li>
-        ` 
-    }
-
-    // Displaying the info in unorderd list
-    ulEl.innerHTML = items;  
-}
